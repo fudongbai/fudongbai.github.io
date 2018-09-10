@@ -2,7 +2,8 @@
 layout: post
 title: Android cheatsheet
 date: 2018-09-10 20:15 +0800
-categories: Android
+categories: [Android]
+tags: [Android, dumpsys]
 ---
 
 ## dumpsys

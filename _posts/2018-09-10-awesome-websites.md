@@ -2,7 +2,8 @@
 layout: post
 title: Awesome websites
 date: 2018-09-10 19:59 +0800
-categories: Miscelaneous
+categories: [Miscelaneous]
+tags: [technology, blog]
 ---
 
 ## Technology News

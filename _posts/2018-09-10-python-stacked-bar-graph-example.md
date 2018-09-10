@@ -2,7 +2,8 @@
 layout: post
 title: python stacked bar graph example
 date: 2018-09-10 20:30 +0800
-categories: python
+categories: [Python]
+tags: [matplotlib, stacked]
 ---
 
 ![GPU rendering graph](/assets/com.example.overdraw.png)

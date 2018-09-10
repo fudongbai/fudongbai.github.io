@@ -2,7 +2,8 @@
 layout: post
 title: Create new post with jekyll-compose
 date: 2018-09-10 19:50 +0800
-categories: Jekyll
+categories: [Jekyll]
+tags: [Jekyll, post]
 ---
 
 ## Installation

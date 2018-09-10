@@ -2,7 +2,8 @@
 layout: post
 title: git cheatsheet
 date: 2018-09-10 20:05 +0800
-categories: Miscelaneous
+categories: [Miscelaneous]
+tags: [git, cheatsheet]
 ---
 
 ```
