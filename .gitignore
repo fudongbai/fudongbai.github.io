@@ -5,3 +5,4 @@ _site
 # ignore vim swap files
 *.sw*
 .sw*
+.DS_Store
