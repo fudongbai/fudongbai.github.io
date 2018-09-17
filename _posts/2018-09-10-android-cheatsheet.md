@@ -13,3 +13,7 @@ tags: [Android, dumpsys]
    dumpsys window windows |grep -E 'mCurrentFocus|mFocusedApp''
 ```
 
+## capture screen on android
+```shell
+screencap "/data/android-`date +%F-%H%M%S`.png"
+```
