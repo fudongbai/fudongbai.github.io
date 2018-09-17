@@ -17,3 +17,10 @@ tags: [Android, dumpsys]
 ```shell
 screencap "/data/android-`date +%F-%H%M%S`.png"
 ```
+## send toast in C
+```c
+#define ANDROID_DATA “ANDROID_DATA=/data”
+putenv (ANDROID_DATA)
+system(“am broadcast -a com.example.DFU_COMPLETE - -ez dfu_complete true”);
+```
+Then when received the broadcast in the app, send a toast to the user.
