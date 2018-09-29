@@ -30,4 +30,9 @@ git rebase origin/name-of-upstream-branch
 git format-patch -6 --cover-letter
 
 git send-email --to fudongbai@gmail.com --cc fudong@mail.com
+
+# push to gerrit
+git push origin HEAD:refs/for/master
+# push straight to the master branch
+git push origin HEAD:refs/heads/master
 ```
