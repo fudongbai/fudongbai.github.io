@@ -6,7 +6,7 @@ categories: [Miscelaneous]
 tags: [git, cheatsheet]
 ---
 
-```
+```shell
 # Create a tag
 git tag -a v1.0 -m "milestone: v1"
 git push --tags
@@ -36,3 +36,11 @@ git push origin HEAD:refs/for/master
 # push straight to the master branch
 git push origin HEAD:refs/heads/master
 ```
+[Detele a commit from remote branch][git-reset]
+```shell
+git reset --hard HEAD^
+git push origin +master
+```
+Please **NOTE** the **+** sign before the branch name you are pushing
+
+[git-reset]: https://ncona.com/2011/07/how-to-delete-a-commit-in-git-local-and-remote/
