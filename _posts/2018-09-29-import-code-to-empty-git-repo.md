@@ -35,7 +35,7 @@ do
 	fi
 
 	# do commit
-	git add .
+	find . -type f |xargs git add -f
 	git commit -asm "import source code from google"
 	git push origin HEAD:refs/heads/branch_name
 	cd -
