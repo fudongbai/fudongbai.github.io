@@ -34,22 +34,32 @@ else
 fi
 insmod /system/lib/modules/zram.ko $MODPROBE_ARGS
 
-# Calculate memory to use for zram (1/2 of ram)
+# Calculate memory to use for zram (1/4 of ram)
 totalmem=`LC_ALL=C free | grep -e "^Mem:" | sed -e 's/^Mem: *//' -e 's/  *.*//'`
-mem=$(((totalmem / 2 / ${NRDEVICES}) * 1024))
+mem=$((totalmem / 4 / ${NRDEVICES}))
 
 # initialize the devices
 for i in $(seq ${NRDEVICES}); do
     DEVNUM=$((i - 1))
     echo $mem > /sys/block/zram${DEVNUM}/disksize
-    mkswap /dev/zram${DEVNUM}
-    swapon -p 5 /dev/zram${DEVNUM}
+    mkswap /dev/block/zram${DEVNUM}
+    swapon -p 5 /dev/block/zram${DEVNUM}
 done
+```
+
+After android bootup, swap patition can be viewed through procfs:
+```shell
+rpi3:/mnt/media_rw # cat /proc/swaps
+Filename				Type		Size	Used	Priority
+/dev/block/zram0                        partition	47656	0	5
+/dev/block/zram1                        partition	47656	0	5
+/dev/block/zram2                        partition	47656	0	5
+/dev/block/zram3                        partition	47656	0	5
 ```
 
 In case zram was built into kernel pass zram parameter from bootargs:
 ```shell
-zram.num_devices=2
+zram.num_devices=4
 ```
 
 ## Performance
