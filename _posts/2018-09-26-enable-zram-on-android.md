@@ -47,7 +47,7 @@ for i in $(seq ${NRDEVICES}); do
 done
 ```
 
-After android bootup, swap patition can be viewed through procfs:
+After android bootup, swap partition can be viewed through procfs:
 ```shell
 rpi3:/mnt/media_rw # cat /proc/swaps
 Filename				Type		Size	Used	Priority
