@@ -24,6 +24,7 @@ Tools                          | Description
 [latencytop][latencytop]       | Pretty old
 [lkp-tests][lkp]               | Linux Kernel Performance tests
 [numatop][numatop]             | NumaTOP is an observation tool for runtime memory locality characterization and analysis of processes and threads running on a NUMA system.
+[openstf][openstf]             | Control and manage real Smartphone devices from your browser
 [oprofile][oprofile]           | OProfile is an open source project that includes a statistical profiler for Linux systems, capable of profiling all running code at low overhead.
 [perfetto][perfetto]           | Perfetto is an open-source project for performance instrumentation and tracing of Linux/Android/Chrome platforms and user-space apps.
 [perf-tools]                   | Performance analysis tools based on Linux perf_events (aka perf) and ftrace
@@ -53,6 +54,7 @@ Tools                          | Description
 [latencytop]: http://git.infradead.org/latencytop.git
 [lkp]: https://github.com/intel/lkp-tests
 [numatop]: https://github.com/intel/numatop
+[openstf]: https://openstf.io
 [oprofile]: http://oprofile.sourceforge.net/download/
 [perfetto]: https://github.com/catapult-project/perfetto
 [perf-tools]: https://github.com/brendangregg/perf-tools
