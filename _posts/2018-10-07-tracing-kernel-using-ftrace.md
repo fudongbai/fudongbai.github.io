@@ -602,7 +602,7 @@ or by below command:
 
 The events can also be filtered. To know what fields can be used for filtering a
 specific event, look in the format file from
-/sys/kernel/debug/tracing/events/<subsystem>/<event>/format, or run
+/sys/kernel/debug/tracing/events/\<subsystem\>/\<event\>/format, or run:
 ```shell
 rpi3:/data # trace-cmd report --events |busybox less
 ```
