@@ -4,6 +4,7 @@ title: Tracing kernel using ftrace
 date: 2018-10-07 07:36 +0800
 categories: [ftrace]
 tags: [ftrace, trace-cmd, kernelshark]
+toc: true
 ---
 
 ## Ftrace

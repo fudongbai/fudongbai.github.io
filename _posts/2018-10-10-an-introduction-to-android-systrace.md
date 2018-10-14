@@ -4,6 +4,7 @@ title: An introduction to android systrace
 date: 2018-10-10 22:59 +0800
 categories: [Android]
 tags: [systrace, ftrace]
+toc: true
 ---
 
 ## what is systrace
