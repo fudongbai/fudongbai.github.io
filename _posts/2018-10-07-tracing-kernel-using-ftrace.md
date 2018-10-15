@@ -716,6 +716,27 @@ option can be enabled through **Filter >> advanced events**, refer to
 [Advanced Event Filter][ksf] section of official document.
 
 
+### New features in future versio of kernelshark
+The author of kernelshark, Steven Rostedt now working for VMware, he made an
+announcement in VMware's [Open Source Blog][new-kernelshark] that this fall,
+version 1.0 will be released with the following exciting features:
+- Completely rewritten based on Qt
+- Improved loading trace file time, the new release(1.0) will be able to load
+gigabyte file within seconds compared to the GTK version that takes minutes.
+- Making KernelShark user modifiable.
+- There are no more pop-ups over the mouse; instead, the data is displayed in a
+constant location at the top. But the interaction is much faster than it was
+before. Zooming in and out is much smoother and can be done with the use of the
+mouse wheel.
+- Something similar with [flamegraphs][flamegraphs] whic show what functions
+are taking up the most processing time in a CPU.
+- Save sessions in JSON format file, that way KernelShark can come back to the
+exact place where it left off when exited.
+- A new capturing feature with no need to run as root.
+- Will be able to trace guests along with the host events.
+
+And many more...
+
 
 ## References
 - [Debugging the kernel using Ftrace - part 1][ftrace-part1]
@@ -738,6 +759,8 @@ option can be enabled through **Filter >> advanced events**, refer to
 [frontend]: https://lwn.net/Articles/410200/
 [kshark]: https://lwn.net/Articles/425583/
 [kernelshark]: http://rostedt.homelinux.com/kernelshark/
+[new-kernelshark]: https://blogs.vmware.com/opensource/2018/07/10/kernelshark-trace-data-visualization/
 [ksf]: http://rostedt.homelinux.com/kernelshark/#filter-adv-event
 [stacktracer]: https://lwn.net/Articles/295955/
 [elinux-ftrace]: https://elinux.org/Ftrace
+[flamegraphs]: http://www.brendangregg.com/flamegraphs.html
