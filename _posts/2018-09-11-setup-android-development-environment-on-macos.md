@@ -88,5 +88,12 @@ and the following binaries will be also installed:
 [brismuth](https://stackoverflow.com/users/1569320/brismuth) at stackoverflow provided
 other [two options](https://stackoverflow.com/questions/31374085/installing-adb-on-macos).
 
+## Install Android NDK
+```shell
+brew cask install android-ndk
+```
+This will install android ndk to */usr/local/Caskroom/android-ndk/18/android-ndk-r18/*
+
+
 ## References
 - [How to install Java 8 on Mac](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac)
