@@ -32,6 +32,7 @@ Tools                          | Description
 [rt-app][rt-app]               | rt-app emulates typical mobile and real-time systems use cases and gives runtime information
 [sched-profile][sched-profile] | A set of scripts and tools useful to profile the Linux scheduler
 [schedtool-dl][schedtool-dl]   | A tool to change or query all CPU-scheduling policies under Linux
+[speedscope][speedscope]       | A fast, interactive web-based viewer for performance profiles.
 [stf][stf]                     | Control and manage Android devices from your browser.
 [tiobench][tiobench]           | Threaded IO Benchmark
 [trace-cmd][trace-cmd]         | trace-cmd and KernelShark
@@ -62,6 +63,7 @@ Tools                          | Description
 [rt-app]: https://github.com/scheduler-tools/rt-app
 [sched-profile]: https://github.com/derkling/sched-profile
 [schedtool-dl]: https://github.com/scheduler-tools/schedtool-dl
+[speedscope]: https://github.com/jlfwong/speedscope
 [stf]: https://github.com/openstf/stf
 [tiobench]: https://github.com/mkuoppal/tiobench
 [trace-cmd]: https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/trace-cmd.git
