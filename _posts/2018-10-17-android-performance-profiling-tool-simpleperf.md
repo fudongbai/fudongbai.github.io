@@ -372,7 +372,7 @@ report.py takes same options as simpleper report.
 
 ## Visualize profiling data
 ### Generate flamegraph with Inferno
-Inferno is a tool to generate flamegraphs for android programs. It was originally
+Inferno is a tool to generate flamegraph for android programs. It was originally
 written to profile surfaceflinger (Android compositor) but it can be used for
 other C++ program.  
 It uses simpleperf to collect data. Programs have to be compiled with frame pointers
@@ -390,7 +390,7 @@ $ pwd
 $ ./inferno.sh -sc --symfs binary_cache
 ```
 Inferno will generate report.html in the current directory and launch web browser
-automatically to show the flamegraph.
+automatically to show the [flamegraph][flamegraph].
 
 
 
