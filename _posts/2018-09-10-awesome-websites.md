@@ -8,16 +8,19 @@ tags: [technology, blog]
 
 ## Technology News
 
-Website                 | Founded
------------------------ | -------
-[Mashable][mashable]    | July 19, 2005
-[TechCrunch][tc]        | June 10, 2005
-[WIRED][wired]          | January 2, 1993
-[CNET][cnet]            | March 5, 1994
-[The Verge][theverge]   | November 1, 2011
-[Digital Trends][dts]   | June, 2006
-[Android Central][ac]   |
+Website                     | Founded
+--------------------------- | -------
+[Business Insider][insider] | February 2009
+[Mashable][mashable]        | July 19, 2005
+[TechCrunch][tc]            | June 10, 2005
+[WIRED][wired]              | January 2, 1993
+[CNET][cnet]                | March 5, 1994
+[The Verge][theverge]       | November 1, 2011
+[Digital Trends][dts]       | June, 2006
+[PC Magazine][pcmag]        | 1982
+[Android Central][ac]       |
 
+[insider]: https://www.businessinsider.com
 [mashable]: https://mashable.com
 [tc]: https://techcrunch.com
 [wired]: https://www.wired.com
@@ -25,7 +28,7 @@ Website                 | Founded
 [theverge]: https://www.theverge.com
 [dts]: https://www.digitaltrends.com
 [ac]: https://www.androidcentral.com
-
+[pcmag]: https://www.pcmag.com
 
 ## Crowdfunding
 
