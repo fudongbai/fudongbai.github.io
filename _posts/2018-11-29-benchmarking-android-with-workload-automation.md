@@ -12,6 +12,8 @@ tags: [android, wa, workload-automation, profiling]
 > workloads and supports some common instrumentation (ftrace, hwmon) along with
 > a number of output formats.
 
+WA is heavily depend on [devlib][devlib], which was also created by ARM and under
+active development.
 
 ## Installation
 
@@ -70,6 +72,99 @@ run several workloads, what if I wanna setup android devices in boost mood.
 To do complicated jobs, we need to create an "agenda", to get an general idea
 what aganda looks like, see [lisa agenda examples][agenda].
 
+
+## Creating a workload
+In this section we will create a workload for doing some arithmetics using
+android calculator, as this process involving digit selection, we will create a
+apkuiauto type of workload:
+```shell
+fdbai@fdbai-desktop:/tmp$ wa create workload -k apkuiauto calculator
+```
+We can find the newly created workload in $HOME/.workload_automation/plugins/calculator.
+
+The directory structure looks like this:
+```
+.
+|-- __init__.py
+`-- uiauto
+    |-- app
+    |   |-- build.gradle
+    |   `-- src
+    |       `-- main
+    |           |-- AndroidManifest.xml
+    |           `-- java
+    |               `-- com
+    |                   `-- arm
+    |                       `-- wa
+    |                           `-- uiauto
+    |                               `-- UiAutomation.java
+    |-- build.gradle
+    |-- build.sh
+    |-- gradle
+    |   `-- wrapper
+    |       |-- gradle-wrapper.jar
+    |       `-- gradle-wrapper.properties
+    |-- gradlew
+    |-- gradlew.bat
+    `-- settings.gradle
+```
+
+For more options on creating workload, issue below command for more:
+```shell
+$ wa create workload -h
+```
+
+### uiautomatorviewer
+
+UI object can be inspected with uiautomatorviewer:
+- Go to $ANDROID_HOME/tools/bin/
+- execute ./uiautomatorviewer
+- click the second button from left side
+- wait for hierarchy to be displayed
+- click the desired element, you'll see the node detail in the right panel'
+![uiautomatorviewer](/assets/uiautomatorviewer.png)
+
+The following changes are what we made to make this workload to work:
+```
+diff --git a/__init__.py b/__init__.py
+index 32123c0..481e912 100644
+--- a/__init__.py
++++ b/__init__.py
+@@ -6,7 +6,7 @@ class Calculator(ApkUiautoWorkload):
+     name = 'calculator'
+     description = "This is an placeholder description"
+     # Replace with a list of supported package names in the APK file(s).
+-    package_names = ['package_name']
++    package_names = ['com.android.calculator2']
+
+     parameters = [
+         # Workload parameters go here e.g.
+diff --git a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java b/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAut
+index 14cc13b..87461f6 100644
+--- a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java
++++ b/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java
+@@ -46,7 +46,16 @@ public class UiAutomation extends BaseUiAutomation {
+
+     @Test
+     public void runWorkload() throws Exception {
+-          // The main UI Automation code goes here
++        // The main UI Automation code goes here
++        UiObject digit =
++            mDevice.findObject(new UiSelector().resourceId(packageID + "digit_8"));
++        digit.click();
++        UiObject op = mDevice.findObject(new UiSelector().resourceId(packageID + "op_add"));
++        op.click();
++        digit = mDevice.findObject(new UiSelector().resourceId(packageID + "digit_9"));
++        digit.click();
++        UiObject result = mDevice.findObject(new UiSelector().resourceId(packageID + "eq"));
++        result.click();
+     }
+```
+After this, goto uiauto directory, execute ./build.sh and wait for build complete.
+
+
+## applaunch
+TODO
 
 ## References
 - [User Information][user]
