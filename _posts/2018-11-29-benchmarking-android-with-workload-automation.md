@@ -121,16 +121,16 @@ UI object can be inspected with uiautomatorviewer:
 - execute ./uiautomatorviewer
 - click the second button from left side
 - wait for hierarchy to be displayed
-- click the desired element, you'll see the node detail in the right panel'
+- click the desired element, you'll see the node detail in the right panel
 ![uiautomatorviewer](/assets/uiautomatorviewer.png)
 
 The following changes are what we made to make this workload to work:
 ```
 diff --git a/__init__.py b/__init__.py
-index 32123c0..481e912 100644
+index 32123c0..ab98f03 100644
 --- a/__init__.py
 +++ b/__init__.py
-@@ -6,7 +6,7 @@ class Calculator(ApkUiautoWorkload):
+@@ -6,12 +6,12 @@ class Calculator(ApkUiautoWorkload):
      name = 'calculator'
      description = "This is an placeholder description"
      # Replace with a list of supported package names in the APK file(s).
@@ -139,6 +139,12 @@ index 32123c0..481e912 100644
 
      parameters = [
          # Workload parameters go here e.g.
+         Parameter('example_parameter', kind=int, allowed_values=[1,2,3],
+-                  default=1, override=True, mandatory=False,
++                  default=1, override=False, mandatory=False,
+                   description='This is an example parameter')
+     ]
+
 diff --git a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java b/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAut
 index 14cc13b..87461f6 100644
 --- a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java
@@ -160,7 +166,7 @@ index 14cc13b..87461f6 100644
 +        result.click();
      }
 ```
-After this, goto uiauto directory, execute ./build.sh and wait for build complete.
+After this, go to uiauto directory, execute ./build.sh and wait for build complete.
 
 
 ## applaunch
