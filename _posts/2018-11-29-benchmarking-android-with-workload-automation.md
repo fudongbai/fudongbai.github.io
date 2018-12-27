@@ -124,7 +124,8 @@ UI object can be inspected with uiautomatorviewer:
 - click the desired element, you'll see the node detail in the right panel
 ![uiautomatorviewer](/assets/uiautomatorviewer.png)
 
-The following changes are what we made to make this workload to work:
+The following changes are what we made to make workload [calculator][calc] to
+work:
 ```
 diff --git a/__init__.py b/__init__.py
 index 32123c0..ab98f03 100644
@@ -196,3 +197,4 @@ TODO
 [agenda]: https://github.com/ARM-software/lisa/tree/master/tools/wltests/agendas
 [devlib]: https://github.com/ARM-software/devlib
 [devlib-doc]: https://devlib.readthedocs.io/en/latest/
+[calc]: https://github.com/fudongbai/workload-calculator
