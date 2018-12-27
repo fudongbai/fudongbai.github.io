@@ -170,7 +170,7 @@ index 14cc13b..87461f6 100644
 After this, go to uiauto directory, execute ./build.sh and wait for build complete.
 
 Run directly with 'wa run calculator -vf' or create an agenda like this:
-```
+```yaml
 fdbai@fdbai-desktop:~/perf/wa/calculator$ cat calc.yaml
 config:
     iterations: 10
@@ -184,7 +184,86 @@ workloads:
 Now, run 'wa run calc.yaml -vf' to see what happens.
 
 ## applaunch
-TODO
+This workload launches and measures the launch time of applications for supporting
+workloads which implement ``ApplaunchInterface``.
+
+To support applaunch, workload should override the following abstract methods:
+- runApplicationSetup
+- getLaunchEndObject
+- getLaunchCommand
+- setWorkloadParameters
+
+Take the workload calculator for example:
+```
+diff --git a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java b/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAut
+index 87461f6..f3199cf 100644
+--- a/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java
++++ b/uiauto/app/src/main/java/com/arm/wa/uiauto/UiAutomation.java
+@@ -19,10 +19,13 @@ import org.junit.Before;
+ import org.junit.Test;
+ import org.junit.runner.RunWith;
+
++import com.arm.wa.uiauto.ApplaunchInterface;
+ import com.arm.wa.uiauto.BaseUiAutomation;
++import com.arm.wa.uiauto.ActionLogger;
++import com.arm.wa.uiauto.UiAutoUtils;
+
+ @RunWith(AndroidJUnit4.class)
+-public class UiAutomation extends BaseUiAutomation {
++public class UiAutomation extends BaseUiAutomation implements ApplaunchInterface {
+
+     protected Bundle parameters;
+     protected String packageID;
+@@ -67,4 +70,29 @@ public class UiAutomation extends BaseUiAutomation {
+     public void teardown() throws Exception {
+         // Optional: Perform any clean up for the workload
+     }
++
++    public void runApplicationSetup() throws Exception {
++        // do nothing;
++    }
++
++    // Sets the UiObject that marks the end of the application launch.
++    public UiObject getLaunchEndObject() {
++        UiObject launchEndObject =
++                        mDevice.findObject(new UiSelector().resourceId(packageID + "digit_8")
++                                                           .className("android.widget.Button"));
++        return launchEndObject;
++    }
++
++    // Returns the launch command for the application.
++    public String getLaunchCommand() {
++        String launch_command;
++        launch_command = UiAutoUtils.createLaunchCommand(parameters);
++        return launch_command;
++    }
++
++    // Pass the workload parameters, used for applaunch
++    public void setWorkloadParameters(Bundle workload_parameters) {
++        parameters = workload_parameters;
++        packageID = getPackageID(parameters);
++    }
+ }
+```
+
+Run applaunch with this agenda:
+```yaml
+config:
+    iterations: 10
+    max_retries: 5
+    execution_order: by_workload
+    device: generic_android
+    augmentations: [uxperf]
+
+workloads:
+  - name: applaunch
+    id: applaunch
+    workload_parameters:
+        workload_name: 'calculator'
+        applaunch_iterations: 5
+        markers_enabled: True
+```
+NOTE: **markers_enabled** must be set to True to make uxperf working.
 
 ## References
 - [User Information][user]
