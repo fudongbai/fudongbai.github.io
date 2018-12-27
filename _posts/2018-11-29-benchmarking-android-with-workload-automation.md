@@ -168,6 +168,19 @@ index 14cc13b..87461f6 100644
 ```
 After this, go to uiauto directory, execute ./build.sh and wait for build complete.
 
+Run directly with 'wa run calculator -vf' or create an agenda like this:
+```
+fdbai@fdbai-desktop:~/perf/wa/calculator$ cat calc.yaml
+config:
+    iterations: 10
+    max_retries: 5
+    execution_order: by_workload
+    device: generic_android
+
+workloads:
+  - name: calculator
+```
+Now, run 'wa run calc.yaml -vf' to see what happens.
 
 ## applaunch
 TODO
